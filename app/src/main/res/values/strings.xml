@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">CurrencyTicker</string>
+
+    <string name="general_warning">Something went wrong, please verify your internet connection.</string>
+</resources>
