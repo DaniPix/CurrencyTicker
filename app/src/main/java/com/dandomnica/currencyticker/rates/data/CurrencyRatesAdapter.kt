@@ -49,7 +49,7 @@ class CurrencyRatesAdapter(private val listener: CurrencyListener,
 		holder.currencyAmountInput.addTextChangedListener(currencyInputTextWatcher)
 
 		holder.itemView.setOnClickListener {
-			listener.onCurrencyClick( data[position])
+			listener.onCurrencyClick(data[holder.adapterPosition])
 			selectedCurrency = rate.currencyShortName
 			holder.currencyAmountInput.requestFocus()
 		}
@@ -77,9 +77,9 @@ class CurrencyRatesAdapter(private val listener: CurrencyListener,
 	 */
 	private fun swapTopCurrency(newData: List<Rate>) {
 		val position = data.indexOfFirst { it.currencyShortName == newData[0].currencyShortName }
-		val rate = data[position]
+		val newRate = newData[0]
 		data.removeAt(position)
-		data.add(FIRST_INDEX, rate)
+		data.add(FIRST_INDEX, newRate)
 		notifyItemMoved(position, FIRST_INDEX)
 	}
 
