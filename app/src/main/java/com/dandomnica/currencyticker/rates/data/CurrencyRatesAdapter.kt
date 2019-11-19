@@ -49,7 +49,7 @@ class CurrencyRatesAdapter(private val listener: CurrencyListener,
 		holder.currencyAmountInput.addTextChangedListener(currencyInputTextWatcher)
 
 		holder.itemView.setOnClickListener {
-			listener.onCurrencyClick(rate)
+			listener.onCurrencyClick( data[position])
 			selectedCurrency = rate.currencyShortName
 			holder.currencyAmountInput.requestFocus()
 		}
